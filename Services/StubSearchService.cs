@@ -1,12 +1,12 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using DoctorSearch.Models;
+using System.Threading.Tasks;
 
 namespace DoctorSearch.Services
 {
     public class StubSearchService : ISearchService
     {
-        public Task<List<Surgery>> GetSurgeries(string postcode)
+        public Task<List<Surgery>>  GetSurgeries(string postcode)
         {
             return Task.FromResult(new List<Surgery>()
             {

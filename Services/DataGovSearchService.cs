@@ -17,7 +17,7 @@ namespace DoctorSearch.Services
         {
             _cache = cache;
         }
-        
+
         public async Task<List<Surgery>> GetSurgeries(string postcode)
         {
             var cacheKey = "Surgeries_" + postcode;
@@ -30,7 +30,7 @@ namespace DoctorSearch.Services
 
             using (var client = new HttpClient())
             {
-                var url = "https://data.gov.uk/data/api/service/health/gp_surgeries/partial_postcode?partial=" + postcode;
+                var url = "https://data.gov.uk/data/api/service/health/gp_surgeries/partial_postcode?partial_postcode=" + postcode;
                 client.BaseAddress = new Uri(url);
                 var response = await client.GetAsync(url);
                 if (response.IsSuccessStatusCode)
@@ -44,9 +44,9 @@ namespace DoctorSearch.Services
                             .ToList();
 
                         _cache.Set(cacheKey, surgeries,
-                            new MemoryCacheEntryOptions()
-                                .SetAbsoluteExpiration(TimeSpan.FromMinutes(1)));
-                        return surgeries;                            
+                            new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(1)));
+
+                        return surgeries;
                     }
 
                     throw new Exception("Request unsuccessful: response received but non-success after deserialisation.");

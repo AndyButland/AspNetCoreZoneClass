@@ -7,7 +7,6 @@
 </head>
 
 <body>
-
 <h1>@Model.PageTitle</h1>
 
 <form method="get">
@@ -20,7 +19,7 @@
 {
     <p>
         You searched for: <strong>@Model.Postcode</strong>.
-        <strong>@Model.Surgeries.Count</strong> surger@(Model.Surgeries.Count == 1 ? "s" : "ies") found.
+        <strong>@Model.Surgeries.Count</strong> surger@(Model.Surgeries.Count == 1 ? "y" : "ies") found.
     </p>
 
     <h2>Surgeries</h2>
@@ -32,7 +31,7 @@
             data-lng="@Model.MapCentreLng" 
             data-map-markers='@Html.Raw(Model.MapMarkerData)'></div>
     }
-
+    
     <ul>
         @foreach(var surgery in Model.Surgeries)
         {
@@ -40,19 +39,27 @@
                 <h3>@surgery.Name</h3>
                 <dl>
                     <dt>Website:</dt>
-                    <dd><a href="@surgery.Website">@surgery.Website</a></dd>
+                    <dd>
+                        <a href="@surgery.Website">
+                             @surgery.Website
+                        </a>
+                    </dd>
                 </dl>
                 <dl>
                     <dt>Email:</dt>
-                    <dd><a href="mailto:@surgery.Email">@surgery.Email</a></dd>
+                    <dd>
+                        <a href="mailto:@surgery.Email">
+                            @surgery.Email
+                        </a>
+                    </dd>
                 </dl>
                 <dl>
-                    <dt>Teleohone:</dt>
+                    <dt>Telephone:</dt>
                     <dd>@surgery.Telephone</dd>
                 </dl>            
             </li>
         }
-    </ul>
+    </ul>    
 }
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV93Z_P6o-V4jjeIMf_FvEvtH00o1g9fU&callback=initMap"></script>

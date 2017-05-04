@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using DoctorSearch.ViewModels;
 using DoctorSearch.Services;
+using DoctorSearch.ViewModels;
 using System.Threading.Tasks;
 
 namespace DoctorSearch.Controllers
@@ -13,7 +13,7 @@ namespace DoctorSearch.Controllers
         {
             _searchService = searchService;
         }
-
+        
         public async Task<IActionResult> Index(string postcode)
         {
             var model = new HomeIndexViewModel
@@ -26,9 +26,9 @@ namespace DoctorSearch.Controllers
                 model.Postcode = postcode;
                 model.SearchRequested = true;
 
-                model.Surgeries = await _searchService.GetSurgeries(postcode);
+                model.Surgeries = await  _searchService.GetSurgeries(postcode);
             }
-
+            
             return View("Index", model);
         }
    }

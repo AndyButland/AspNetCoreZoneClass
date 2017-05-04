@@ -1,4 +1,4 @@
-function initMap() {
+ function initMap() {
 
     // Get list of markers and map centre from data- attribute
     var mapElement = document.getElementById('map');
@@ -28,7 +28,8 @@ function initMap() {
         });       
 
         // Add the name to the marker
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        google.maps.event.addListener(marker, 'click', (function(marker, i)
+        {
             return function() {
                 infowindow.setContent(locations[i].name);
                 infowindow.open(map, marker);

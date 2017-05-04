@@ -6,6 +6,6 @@ namespace DoctorSearch.Services
 {
     public interface ISearchService
     {
-        Task<List<Surgery>> GetSurgeries(string postcode);
+        Task<List<Surgery>>  GetSurgeries(string postcode);
     }
 }

@@ -4,7 +4,7 @@ namespace DoctorSearch.Models
 {
     public class Surgery
     {
-        [JsonProperty(PropertyName = "organisation_name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         [JsonProperty(PropertyName = "website")]
@@ -14,12 +14,13 @@ namespace DoctorSearch.Models
         public string Email { get; set; }
 
         [JsonProperty(PropertyName = "phone")]
-        public string Telephone { get; set; }
+        public string Telephone { get; set; }   
 
         [JsonProperty(PropertyName = "longitude")]
         public decimal Longitude { get; set; }    
 
         [JsonProperty(PropertyName = "latitude")]
         public decimal Latitude { get; set; }                                                                    
+                                   
     }
 }

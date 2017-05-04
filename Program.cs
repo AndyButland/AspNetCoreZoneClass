@@ -1,4 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
 namespace DoctorSearch
@@ -7,13 +11,10 @@ namespace DoctorSearch
     {
         public static void Main(string[] args)
         {
-            var contentRoot = Directory.GetCurrentDirectory();
-            var webRoot = Path.Combine(contentRoot, "wwwroot");
-
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .UseContentRoot(contentRoot)
-                .UseWebRoot(webRoot)
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
 

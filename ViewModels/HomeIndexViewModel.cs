@@ -60,6 +60,6 @@ namespace DoctorSearch.ViewModels
 
                 return 0;  
             }
-        }        
+        }       
     }
 }
